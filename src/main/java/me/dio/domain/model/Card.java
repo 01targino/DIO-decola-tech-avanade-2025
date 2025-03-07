@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity(name = "tb_card")
 public class Card {
-	
+
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -18,10 +18,7 @@ public class Card {
 	@Column(unique = true)
 	private String number;
 	
-	@Column(nullable = false, scale = 13, precision = 2)
-	private BigDecimal balance;
-	
-	@Column(name = "available_limit",nullable = false, scale = 13, precision = 2)
+	@Column(name = "available_limit",nullable = false, precision = 13, scale = 2)
 	private BigDecimal limit;
 	
 	public Long getId() {
@@ -38,14 +35,6 @@ public class Card {
 	
 	public void setNumber(String number) {
 		this.number = number;
-	}
-	
-	public BigDecimal getBalance() {
-		return balance;
-	}
-	
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
 	}
 	
 	public BigDecimal getLimit() {
